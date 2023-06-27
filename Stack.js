@@ -4,8 +4,8 @@ class Stack {
     this.size = this.list.length;
   }
 
-  push(value) {
-    this.list.push(value);
+  push(element) {
+    this.list.push(element);
   }
 
   pop() {
