@@ -29,3 +29,5 @@ class Stack {
     console.log(reduced.toString());
   }
 }
+
+module.exports = Stack;

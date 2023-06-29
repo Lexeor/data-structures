@@ -5,11 +5,13 @@ class Queue {
     this.rear = 0;
   }
 
+  /** Add element to the end of the queue */
   enqueue(element) {
     this.list[this.rear] = element;
     this.rear++;
   }
 
+  /** Remove element from the start of the queue */
   dequeue() {
     const item = this.list[this.front];
     delete this.list[this.front];
@@ -37,3 +39,5 @@ class Queue {
     console.log(result);
   }
 }
+
+module.exports = Queue;
