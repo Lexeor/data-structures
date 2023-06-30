@@ -20,7 +20,21 @@ class CircularQueue {
     }
   }
 
-  dequeue() {}
+  dequeue() {
+    if (this.isEmpty()) {
+      console.log("Queue is empty.");
+      return null;
+    }
+    const value = this.list[this.front];
+    this.list[this.front] = null;
+    this.front = (this.front + 1) & this.capacity;
+    this.currentLength -= 1;
+    if (this.isEmpty()) {
+      this.front = -1;
+      this.rear = -1;
+    }
+    return value;
+  }
 
   isEmpty() {
     return this.currentLength === 0;
@@ -36,7 +50,7 @@ class CircularQueue {
 
   print() {
     if (this.isEmpty()) {
-      console.log("List is empty.");
+      console.log("Queue is empty.");
     } else {
       let i;
       let result = "";
@@ -54,4 +68,10 @@ cl.enqueue(10);
 cl.enqueue(10);
 cl.enqueue(10);
 cl.enqueue(10);
+cl.print();
+cl.dequeue();
+cl.print();
+cl.dequeue();
+cl.dequeue();
+cl.dequeue();
 cl.print();
