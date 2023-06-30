@@ -44,7 +44,12 @@ class CircularQueue {
     return this.capacity === this.currentLength;
   }
 
-  peek() {}
+  peek() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    return this.list[this.front];
+  }
 
   size() {}
 
@@ -65,13 +70,10 @@ class CircularQueue {
 
 let cl = new CircularQueue(3);
 cl.enqueue(10);
-cl.enqueue(10);
-cl.enqueue(10);
-cl.enqueue(10);
+cl.enqueue(20);
+cl.enqueue(30);
+cl.enqueue(40);
 cl.print();
 cl.dequeue();
 cl.print();
-cl.dequeue();
-cl.dequeue();
-cl.dequeue();
-cl.print();
+console.log(cl.peek());
