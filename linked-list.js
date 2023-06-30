@@ -34,11 +34,10 @@ class LinkedList {
   }
 
   append(value) {
-    const node = new ListNode(value);
-
     if (this.isEmpty()) {
       this.prepend(value);
     } else {
+      const node = new ListNode(value);
       this.tail.next = node;
       this.tail = node;
       this.size++;
@@ -65,6 +64,16 @@ class LinkedList {
       prev.next = node;
       this.size++;
     }
+  }
+
+  removeFromFront() {
+    if (this.isEmpty()) {
+      return null;
+    }
+    const value = this.head.value;
+    this.head = this.nead.next;
+    this.size--;
+    return value;
   }
 
   removeFrom(index) {
