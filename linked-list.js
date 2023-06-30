@@ -217,24 +217,7 @@ class LinkedList {
   }
 }
 
-const list = new LinkedList();
-list.append(13);
-list.print();
-list.prepend(5);
-list.prepend(20);
-list.prepend(70);
-list.print();
-list.append(13);
-list.insert(17, 5);
-list.insert(12, 3);
-list.print();
-list.removeValue(17);
-list.print();
-console.log(list.search(12));
-console.log(list.search(71));
-list.reverse();
-list.print();
-list.removeFromEnd();
-list.print();
-list.removeFromFront();
-list.print();
+module.exports = {
+  ListNode,
+  LinkedList,
+};
