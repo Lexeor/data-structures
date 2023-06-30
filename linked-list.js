@@ -45,6 +45,28 @@ class LinkedList {
     }
   }
 
+  insert(value, index) {
+    if (index < 0 || index > this.size) {
+      console.log("Index is invalid");
+      return;
+    }
+    if (index === 0) {
+      this.prepend(value);
+    }
+    if (index === this.size) {
+      this.append(value);
+    } else {
+      let node = new ListNode(value);
+      let prev = this.head;
+      for (let i = 0; i < index - 1; i++) {
+        prev = prev.next;
+      }
+      node.next = prev.next;
+      prev.next = node;
+      this.size++;
+    }
+  }
+
   print() {
     if (this.isEmpty()) {
       console.log("List is empty.");
@@ -68,4 +90,6 @@ list.prepend(20);
 list.prepend(70);
 list.print();
 list.append(13);
+list.insert(17, 5);
+list.insert(12, 3);
 list.print();
