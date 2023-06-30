@@ -15,7 +15,9 @@ export class CircularQueue {
     return this.currentLength === 0;
   }
 
-  isFull() {}
+  isFull() {
+    return this.capacity === this.currentLength;
+  }
 
   peek() {}
 
@@ -23,3 +25,6 @@ export class CircularQueue {
 
   print() {}
 }
+
+let cl = new CircularQueue();
+cl.enqueue(10);
