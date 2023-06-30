@@ -20,6 +20,9 @@ class LinkedList {
     return this.size;
   }
 
+  /** Adds a value at the head of a linked list.
+   * @param {number} [value] value to prepend
+   */
   prepend(value) {
     const node = new ListNode(value);
 
@@ -33,6 +36,9 @@ class LinkedList {
     this.size++;
   }
 
+  /** Adds a value at the tail of a linked list.
+   * @param {number} [value] value to append
+   */
   append(value) {
     if (this.isEmpty()) {
       this.prepend(value);
@@ -44,6 +50,10 @@ class LinkedList {
     }
   }
 
+  /** Adds a value to a linked list at the given index.
+   * @param {number} [value] value to insert
+   * @param {number} [index] insert index
+   */
   insert(value, index) {
     if (index < 0 || index > this.size) {
       console.log("Index is invalid");
@@ -66,6 +76,9 @@ class LinkedList {
     }
   }
 
+  /** Removes first element from a linked list.
+   * @returns removed value | null (if list is empty)
+   */
   removeFromFront() {
     if (this.isEmpty()) {
       return null;
@@ -76,6 +89,9 @@ class LinkedList {
     return value;
   }
 
+  /** Removes last element from a linked list.
+   * @returns removed value | null (if list is empty)
+   */
   removeFromEnd() {
     if (this.isEmpty()) {
       return null;
@@ -96,6 +112,10 @@ class LinkedList {
     return value;
   }
 
+  /** Removes element from a linked list at the given index.
+   * @param {number} [index] index to remove
+   * @returns removed value | null (if list is empty)
+   */
   removeFrom(index) {
     if (index < 0 || index > this.size) {
       console.log("Index is invalid");
@@ -117,6 +137,10 @@ class LinkedList {
     return removedNode.value;
   }
 
+  /** Removes FIRST element matched by a given value from a linked list.
+   * @param {number} [value] value to remove
+   * @returns removed value | null (if list is empty)
+   */
   removeValue(value) {
     if (this.isEmpty()) {
       console.log("List is empty.");
@@ -142,6 +166,10 @@ class LinkedList {
     }
   }
 
+  /** Search FIRST element matched by a given value from a linked list.
+   * @param {number} [value] value to search
+   * @returns value index | -1 (if value not found)
+   */
   search(value) {
     if (this.isEmpty()) {
       return -1;
@@ -159,6 +187,7 @@ class LinkedList {
     }
   }
 
+  /** Reverse linked list. */
   reverse() {
     let prev = null;
     let curr = this.head;
@@ -172,6 +201,7 @@ class LinkedList {
     this.head = prev;
   }
 
+  /** Prints linked list, comma separated string. */
   print() {
     if (this.isEmpty()) {
       console.log("List is empty.");
