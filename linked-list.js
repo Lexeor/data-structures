@@ -25,11 +25,24 @@ class LinkedList {
 
     if (this.isEmpty()) {
       this.head = node;
+      this.tail = node;
     } else {
       node.next = this.head;
       this.head = node;
     }
     this.size++;
+  }
+
+  append(value) {
+    const node = new ListNode(value);
+
+    if (this.isEmpty()) {
+      this.prepend(value);
+    } else {
+      this.tail.next = node;
+      this.tail = node;
+      this.size++;
+    }
   }
 
   print() {
@@ -48,7 +61,11 @@ class LinkedList {
 }
 
 const list = new LinkedList();
+list.append(13);
+list.print();
 list.prepend(5);
 list.prepend(20);
 list.prepend(70);
+list.print();
+list.append(13);
 list.print();
