@@ -70,13 +70,4 @@ class CircularQueue {
   }
 }
 
-let cl = new CircularQueue(3);
-cl.enqueue(10);
-cl.enqueue(20);
-cl.enqueue(30);
-cl.enqueue(40);
-cl.print();
-cl.dequeue();
-cl.print();
-console.log("Current peek:", cl.peek());
-console.log(`Current size: ${cl.size()}/${cl.capacity}`);
+module.exports = CircularQueue;
