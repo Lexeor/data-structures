@@ -51,7 +51,9 @@ class CircularQueue {
     return this.list[this.front];
   }
 
-  size() {}
+  size() {
+    return this.currentLength;
+  }
 
   print() {
     if (this.isEmpty()) {
@@ -76,4 +78,5 @@ cl.enqueue(40);
 cl.print();
 cl.dequeue();
 cl.print();
-console.log(cl.peek());
+console.log("Current peek:", cl.peek());
+console.log(`Current size: ${cl.size()}/${cl.capacity}`);
