@@ -27,6 +27,33 @@ class BinarySearchTree {
     }
   }
 
+  delete(value) {
+    this.root = this.deleteNode(this.root, this.value);
+  }
+
+  deleteNode(root, value) {
+    if (root === null) {
+      return root;
+    }
+    if (value < root.value) {
+      root.left = this.deleteNode(root.left, value);
+    } else if (value > root.value) {
+      root.right = this.deleteNode(root.right, value);
+    } else {
+      if (!root.left && !root.right) {
+        return null;
+      }
+      if (!root.left) {
+        return root.right;
+      } else if (!root.right) {
+        return root.left;
+      }
+      root.value = this.min(root.right);
+      root.right = this.deleteNode(root.right, root.value);
+    }
+    return root;
+  }
+
   insertNode(root, newNode) {
     if (newNode.value < root.value) {
       if (root.left === null) {
@@ -54,6 +81,22 @@ class BinarySearchTree {
       return this.search(root.left, value);
     } else {
       return this.search(root.right, value);
+    }
+  }
+
+  min(root) {
+    if (!root.left) {
+      return root.value;
+    } else {
+      return this.min(root.left);
+    }
+  }
+
+  max(root) {
+    if (!root.rigth) {
+      return root.value;
+    } else {
+      return this.max(root.right);
     }
   }
 
@@ -112,3 +155,4 @@ bst.insert(6);
 bst.insert(12);
 
 bst.levelOrder();
+bst.delete(10);
